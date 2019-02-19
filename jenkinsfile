@@ -4,6 +4,8 @@ node {
     git 'https://github.com/javahometech/my-app.git'
     }
     stage('compile-package'){
-    sh 'mvn package'
+    //Geting maven home path
+    def mvnhome = tool name: 'maven 3', type: 'maven'
+    sh "${mvnhome}/bin/mvn package"
     }
     }
